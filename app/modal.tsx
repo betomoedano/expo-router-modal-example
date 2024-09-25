@@ -1,8 +1,10 @@
-import { Link } from "expo-router";
+import { Link, useGlobalSearchParams } from "expo-router";
 import { Button, Pressable, StyleSheet, Text } from "react-native";
 import Animated, { FadeIn, SlideInDown } from "react-native-reanimated";
 
 export default function SettingsScreen() {
+  const params = useGlobalSearchParams();
+  console.log(params);
   return (
     <Animated.View
       entering={FadeIn}
@@ -27,7 +29,9 @@ export default function SettingsScreen() {
           backgroundColor: "white",
         }}
       >
-        <Text>Hello world! 👋</Text>
+        <Text style={{ fontWeight: "bold", marginBottom: 10 }}>
+          Hello {params.profileId ? params.profileId : "world"}! 👋
+        </Text>
         <Link asChild href="/">
           <Button title="← Go back" />
         </Link>

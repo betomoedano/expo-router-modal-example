@@ -1,4 +1,6 @@
 import { Stack } from "expo-router";
+import { LogBox } from "react-native";
+LogBox.ignoreAllLogs(true);
 
 export const unstable_settings = {
   initialRouteName: "index",
